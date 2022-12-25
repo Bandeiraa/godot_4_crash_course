@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmashk7xd416s"]
+
+[ext_resource type="Texture2D" uid="uid://d0k3vx68nke77" path="res://assets/Items/Fruits/Collected.png" id="1_yyeqe"]
+[ext_resource type="Script" path="res://scripts/env/collected_effect.gd" id="2_bqh38"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55lml"]
+atlas = ExtResource("1_yyeqe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e6hr"]
+atlas = ExtResource("1_yyeqe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ped86"]
+atlas = ExtResource("1_yyeqe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wye0c"]
+atlas = ExtResource("1_yyeqe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r40w"]
+atlas = ExtResource("1_yyeqe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w5sp"]
+atlas = ExtResource("1_yyeqe")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hw7mx"]
+animations = [{
+"frames": [SubResource("AtlasTexture_55lml"), SubResource("AtlasTexture_5e6hr"), SubResource("AtlasTexture_ped86"), SubResource("AtlasTexture_wye0c"), SubResource("AtlasTexture_2r40w"), SubResource("AtlasTexture_2w5sp")],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Effect" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_hw7mx")
+animation = &"idle"
+script = ExtResource("2_bqh38")
+
+[connection signal="animation_finished" from="." to="." method="on_animation_finished"]
